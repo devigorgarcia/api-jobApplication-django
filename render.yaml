@@ -1,0 +1,12 @@
+version: 2.0
+
+name: _jobApplication
+
+services:
+  web:
+    build: .
+    command: gunicorn _jobApplication.wsgi:application --bind 0.0.0.0:$PORT
+    env_var:
+      DATABASE_URL: postgres://igorg:iwFMkKFjz16xyiTHMvhSBfT4SyabaSPr@dpg-cf9bb04gqg47ftjjist0-a/job_application_db_bk7n
+    ports:
+      - "8000:8000"
