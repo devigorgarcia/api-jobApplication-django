@@ -21,6 +21,10 @@ class ApplicationCreateView(generics.ListCreateAPIView):
     queryset = Application.objects.all()
     serializer_class = ApplicationSerializer
 
+    def get_queryset(self):
+        user = self.request.user
+        return Application.objects.filter(user=user)
+
 
 class ApplicationDetailView(generics.RetrieveUpdateDestroyAPIView):
     authentication_classes = [JWTAuthentication]
