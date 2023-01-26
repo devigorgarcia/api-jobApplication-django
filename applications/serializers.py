@@ -1,7 +1,8 @@
 from rest_framework import serializers
 from .models import Application
 from stacks.models import Stack
-from status.models import Status
+from status.models import Status, StatusOptions
+
 from status.serializers import StatusSerializer
 from stacks.serializers import StackSerializer
 import ipdb
@@ -32,3 +33,22 @@ class ApplicationSerializer(serializers.ModelSerializer):
             status_inst, _ = Status.objects.get_or_create(**status)
             application.status.add(status_inst)
         return application
+
+
+class ApplicationDetailsSerializer(serializers.ModelSerializer):
+    status = StatusSerializer(many=True, read_only=True)
+    stacks = StackSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Application
+
+        fields = ["id",
+                  "title",
+                  "company",
+                  "link",
+                  "obs",
+                  "level",
+                  "develop",
+                  "stacks",
+                  "status",
+                  ]
