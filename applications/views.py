@@ -9,7 +9,7 @@ from stacks.models import Stack
 from rest_framework.response import Response
 from users.permissions import IsOwner
 
-import ipdb
+
 
 # Create your views here.
 

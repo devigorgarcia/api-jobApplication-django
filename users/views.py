@@ -1,11 +1,9 @@
-import ipdb
-from django.shortcuts import render
 from rest_framework import generics
 from .models import User
 from .serializers import UserSerializer, UserDetailsSerializer, UserProfileSerializer
 from .permissions import IsOwner
 from rest_framework_simplejwt.authentication import JWTAuthentication
-from django.shortcuts import get_object_or_404
+
 
 # Create your views here.
 

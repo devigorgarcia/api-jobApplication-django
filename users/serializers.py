@@ -1,4 +1,4 @@
-import ipdb
+
 from rest_framework import serializers
 from .models import User
 from applications.serializers import ApplicationSerializer

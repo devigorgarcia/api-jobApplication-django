@@ -5,7 +5,7 @@ from status.models import Status, StatusOptions
 
 from status.serializers import StatusSerializer
 from stacks.serializers import StackSerializer
-import ipdb
+
 
 
 class ApplicationSerializer(serializers.ModelSerializer):
